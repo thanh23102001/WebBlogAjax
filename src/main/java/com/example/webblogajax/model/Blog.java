@@ -35,7 +35,6 @@ public class Blog {
     @JoinColumn(name ="author_id")
     private Author author;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "blog")
 //    @NotNull
     private Set<Cover> covers;

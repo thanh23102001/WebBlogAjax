@@ -20,21 +20,31 @@ public class BlogForm {
     @NotEmpty
     private String content;
     private Set<CoverForm> coverForms;
-
+    private Set<Cover> covers;
     private Category category;
 
     private Author author;
 
-    private MultipartFile[] files;
+    private List<MultipartFile>  files;
 
     public BlogForm() {
     }
 
-    public BlogForm(BlogFormBuilder blogFormBuilder) {
-        this.title = blogFormBuilder.title;
-        this.content = blogFormBuilder.content;
-        this.coverForms = blogFormBuilder.coverForms;
+//    public BlogForm(BlogFormBuilder blogFormBuilder) {
+//        this.title = blogFormBuilder.title;
+//        this.content = blogFormBuilder.content;
+//        this.coverForms = blogFormBuilder.coverForms;
+//    }
+
+    public BlogForm(Blog blog) {
+        this.id = blog.getId();
+        this.title = blog.getTitle();
+        this.content = blog.getContent();
+        this.covers = blog.getCovers();
+        this.files = blog.getFiles();
+        this.category = blog.getCategory();
     }
+
 
     public static class BlogFormBuilder {
 

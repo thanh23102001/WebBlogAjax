@@ -1,5 +1,7 @@
 package com.example.webblogajax.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Cover {
 
     @ManyToOne
     @JoinColumn(name = "blog_id")
+    @JsonIgnore
     private Blog blog;
 
     public Cover() {

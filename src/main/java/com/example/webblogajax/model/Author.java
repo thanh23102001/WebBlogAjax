@@ -1,9 +1,13 @@
 package com.example.webblogajax.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Data
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,7 +15,8 @@ public class Author {
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    @OneToMany(mappedBy = "author")
     private Set<Blog> blogs;
 
     public Set<Blog> getBlogs() {
